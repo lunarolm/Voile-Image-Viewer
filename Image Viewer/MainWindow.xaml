@@ -1,0 +1,45 @@
+﻿<Window x:Class="Image_Viewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Image_Viewer"
+        mc:Ignorable="d"
+        Title="Voile Managa Viewer" 
+        Height="528" 
+        Width="654" 
+        Icon="Assets/icon1.ico" 
+        PreviewKeyDown="Window_PreviewKeyDown" 
+        PreviewKeyUp="Window_PreviewKeyUp">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <MenuItem Header="File">
+                <MenuItem Header="Browse Directory" Click="SetDirectory"></MenuItem>
+                <MenuItem Header="Exit" Click="Shutdown"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="About" Click="About"></MenuItem>
+        </Menu>
+        <ListBox x:Name="ImageList" Grid.Row="1" Grid.Column="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding}" Stretch="Uniform" HorizontalAlignment="Stretch" Margin="1" MouseLeftButtonUp="DisplayImageInMain"></Image>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+        <ScrollViewer Grid.Row="1" Grid.Column="1">
+            <Image x:Name="BigImage"></Image>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
