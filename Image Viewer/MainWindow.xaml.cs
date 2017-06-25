@@ -16,7 +16,7 @@ using Microsoft.Win32;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
-namespace Image_Viewer
+namespace Voile
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
