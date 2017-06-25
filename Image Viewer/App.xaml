@@ -1,7 +1,7 @@
-﻿<Application x:Class="Image_Viewer.App"
+﻿<Application x:Class="Voile.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Image_Viewer"
+             xmlns:local="clr-namespace:Voile"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
