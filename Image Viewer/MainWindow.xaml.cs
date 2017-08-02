@@ -33,7 +33,7 @@ namespace Voile
             setInitialPicture();
         }
 
-        public void GetImages()
+        public void GetImages()//retrieves thumbnails of all images in folder
         {
             var images = from x in imageDir.GetFiles() where x.Extension == ".jpg" || x.Extension == ".png" select x;
             foreach (var ele in images)
@@ -46,7 +46,7 @@ namespace Voile
             BigImage.Source = new BitmapImage(new Uri("Assets/patchy.jpg", UriKind.Relative));
         }
 
-        private void SetDirectory(object sender, RoutedEventArgs e)
+        private void SetDirectory(object sender, RoutedEventArgs e)//choose the directory where the images are stored
         {
             var myOpenFileDialog = new CommonOpenFileDialog();
             myOpenFileDialog.IsFolderPicker = true;
@@ -66,7 +66,7 @@ namespace Voile
             }
         }
 
-        private void DisplayImageInMain(object sender, MouseButtonEventArgs e)
+        private void DisplayImageInMain(object sender, MouseButtonEventArgs e)//handler for clicking thumbnail images
         {
             //Console.WriteLine(sender.GetType());
             //Console.Write(BigImage.GetType());
@@ -76,6 +76,7 @@ namespace Voile
 
             currentPic = ImageList.Items.IndexOf(((Image)sender).Source);
             Console.WriteLine(currentPic);
+            MainPanel.ScrollToTop();
 
         }
 
@@ -98,6 +99,7 @@ namespace Voile
                     {
                         currentPic++;
                         SetImage(e);
+                        MainPanel.ScrollToTop();
                     }
                     break;
                 case Key.NumPad8:
@@ -105,6 +107,7 @@ namespace Voile
                     {
                         currentPic--;
                         SetImage(e);
+                        MainPanel.ScrollToTop();
                     }
                     else
                     {
